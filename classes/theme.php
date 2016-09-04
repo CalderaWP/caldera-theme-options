@@ -36,12 +36,12 @@ class theme{
     /**
      * Meta key for product tagline
      */
-    CONST TAGLINE_KEY = 'caldera_theme_tagline';
+    CONST TAGLINE_KEY = 'product_tagline';
 
     /**
      * Meta key for product order
      */
-    CONST ORDER_KEY = 'caldera_theme_order';
+    CONST ORDER_KEY = 'order';
 
 
     /**
