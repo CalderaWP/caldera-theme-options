@@ -115,7 +115,7 @@ class cmb2{
             'desc'    => 'Used for front-end images, featured image will be set first.',
             'id'      => theme::PRODUCT_IMAGES_KEY,
             'type'    => 'file_list',
-            'repeatable' => true,
+            'repeatable' => false,
             'options' => array(
                 'url' => false
             ),
