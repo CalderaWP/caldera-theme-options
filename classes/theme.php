@@ -99,7 +99,7 @@ class theme{
      * @return int
      */
     public function get_download_foo_gallery_id(){
-        return intval( apply_filters('caldera_theme_download_foo_gallery_id', 31 ) );
+        return intval( apply_filters('caldera_theme_download_foo_gallery_id', 28351 ) );
     }
 
     /**
