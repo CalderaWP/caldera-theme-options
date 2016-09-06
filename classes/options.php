@@ -35,7 +35,7 @@ abstract  class options {
     protected function set_settings(array $settings){
         if (! empty( $settings )) {
             foreach ($settings as $key => $setting) {
-                if (!array_key_exists($key, $this->defaults)) {
+                if (! array_key_exists($key, $this->defaults)) {
                     unset($settings[$key]);
                 }
             }
@@ -43,5 +43,7 @@ abstract  class options {
         } else {
             $this->settings = $this->defaults;
         }
+
+
     }
 }

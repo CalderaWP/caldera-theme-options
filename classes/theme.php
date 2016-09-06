@@ -69,6 +69,11 @@ class theme{
     protected $cmb2;
 
     /**
+     * @var default_options;
+     */
+    protected  $default_options;
+
+    /**
      * @return theme
      */
     public static function get_instance(){
@@ -80,6 +85,7 @@ class theme{
     }
 
     private function __construct(){
+
         $this->box_options = new box_options( get_option( self::BOX_KEY, [] ) );
         $this->cmb2 = new cmb2();
     }
@@ -99,7 +105,7 @@ class theme{
      * @return int
      */
     public function get_download_foo_gallery_id(){
-        return intval( apply_filters('caldera_theme_download_foo_gallery_id', 28351 ) );
+        return intval( apply_filters('caldera_theme_download_foo_gallery_id', 28447 ) );
     }
 
     /**
@@ -109,13 +115,19 @@ class theme{
      * @return page_settings|download_settings|\stdClass
      */
     public function get_settings( $id ){
+
         if( ! isset( $this->settings[ $id ] ) ) {
             if ( 'page' == get_post_type( $id ) ) {
                 $this->settings[$id] = $this->create_a_page_settings($id);
             } elseif( 'download' == get_post_type( $id ) ) {
                 $this->settings[$id] = $this->create_a_download_settings( $id );
             }else{
-                return new \stdClass();
+                if ( null == $this->default_options ) {
+                    $this->default_options = new default_options();
+                }
+
+                return $this->default_options;
+
             }
         }
 
@@ -129,17 +141,17 @@ class theme{
      * @return page_settings
      */
     protected function create_a_page_settings($id){
-        $meta = [];
+        $data = [];
         $metas = [
             'show_menu' => self::PAGE_MENU_KEY,
             'full_width_header' => self::PAGE_FW_KEY,
         ];
 
         foreach( $metas as $meta => $key ){
-            $meta[ $meta ] = get_post_meta( $id, $key, true );
+            $data[ $meta ] = get_post_meta( $id, $key, true );
         }
 
-       return new page_settings($meta);
+       return new page_settings($data);
     }
 
     /**
@@ -149,7 +161,7 @@ class theme{
      * @return download_settings
      */
     protected function create_a_download_settings($id){
-        $meta = [];
+        $data = [];
         $metas = [
             'show_menu' => self::PAGE_MENU_KEY,
             'full_width_header' => self::PAGE_FW_KEY,
@@ -159,10 +171,10 @@ class theme{
         ];
 
         foreach( $metas as $meta => $key ){
-            $meta[ $meta ] = get_post_meta( $id, $key, true );
+            $data[ $meta ] = get_post_meta( $id, $key, true );
         }
 
-        return new download_settings($meta);
+        return new download_settings($data);
     }
 
 
