@@ -8,7 +8,7 @@ class page_settings extends \calderawp\theme\options{
      */
     protected $defaults = [
         'show_menu' => true,
-        'full_width_header' => true,
+        'full_width_header' => false,
     ];
 
     /**
