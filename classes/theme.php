@@ -43,6 +43,10 @@ class theme{
      */
     CONST ORDER_KEY = 'order';
 
+	/**
+	 * Meta key for no product image
+	 */
+	CONST NO_COLOR_IMAGE = 'caldera_theme_no_product_image';
 
     /**
      * @var theme

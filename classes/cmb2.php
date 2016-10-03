@@ -109,6 +109,20 @@ class cmb2{
             ),
         ) );
 
+	    $this->download->add_field( array(
+		    'name'    => 'No color image',
+		    'desc'    => 'A version of product banner with no color',
+		    'id'      => theme::NO_COLOR_IMAGE,
+		    'type'    => 'file',
+		    'options' => array(
+			    'url' => false, // Hide the text input for the url
+		    ),
+		    'text'    => array(
+			    'add_upload_file_text' => 'Add Image' // Change upload button text. Default: "Add or Upload File"
+		    ),
+
+	    ) );
+
 
         $this->download->add_field( array(
             'name'    => 'Product Images',
