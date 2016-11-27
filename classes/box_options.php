@@ -9,8 +9,8 @@ class box_options extends options{
      * @inheritDoc
      */
     protected $defaults = [
-        'home' => true,
-        'download' => true,
+        'home' => false,
+        'download' => false,
         'taxonomy' => false,
         'archive' => false,
 
