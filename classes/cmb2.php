@@ -178,7 +178,7 @@ class cmb2{
 		// hook in our save notices
 		add_action( "cmb2_save_options-page_fields_{cl_settings}", array( $this, 'settings_notices' ), 10, 2 );
 		$cmb = new_cmb2_box( array(
-			'id'         => cl_settings,
+			'id'         => 'cl_settings',
 			'hookup'     => false,
 			'cmb_styles' => false,
 			'show_on'    => array(
